@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fabian.MakeRentalController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Text layoutX="240.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vermietung" textAlignment="CENTER" wrappingWidth="800.0">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
+      <Button fx:id="backBTN" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#backBTN" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-style: none; -fx-background-radius: 10; -fx-cursor: hand;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/backIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ListView fx:id="technicianListview" layoutX="50.0" layoutY="150.0" onMouseClicked="#technicianListviewBTB" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
+      <Button fx:id="doneBTN" layoutX="740.0" layoutY="700.0" mnemonicParsing="false" onAction="#doneBTN" prefHeight="50.0" prefWidth="400.0" style="-fx-cursor: hand; -fx-background-color: white; -fx-background-radius: 5;" text="Fertig">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Button>
+      <Button fx:id="addTechnicianBTN" layoutX="50.0" layoutY="349.0" mnemonicParsing="false" onAction="#addTechnicianBTN" prefHeight="27.0" prefWidth="250.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Hinzufügen" />
+      <ListView fx:id="customerListview" layoutX="740.0" layoutY="324.0" onMouseClicked="#customerListview" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
+      <ListView fx:id="technologyListview" layoutX="350.0" layoutY="150.0" onMouseClicked="#technologyListviewBTN" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
+      <Button fx:id="addTechnologyBTN" layoutX="350.0" layoutY="349.0" mnemonicParsing="false" onAction="#addTechnologyBTN" prefHeight="27.0" prefWidth="250.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Hinzufügen" />
+      <Text layoutX="740.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wähle einen Kunden" wrappingWidth="179.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Techniker zur Verfügung" wrappingWidth="179.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="350.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Technik zur Verfügung" wrappingWidth="179.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ListView fx:id="chTechnicanListview" layoutX="50.0" layoutY="474.0" onMouseClicked="#chTechnicanListviewBTN" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
+      <Button fx:id="removetechnicianBTN" layoutX="50.0" layoutY="673.0" mnemonicParsing="false" onAction="#removetechnicianBTN" prefHeight="27.0" prefWidth="250.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Entfernen" />
+      <Text layoutX="50.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Techniker Ausgewählt" wrappingWidth="179.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ListView fx:id="chTechnologyListview" layoutX="350.0" layoutY="474.0" onMouseClicked="#chTechnologyListviewBTN" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
+      <Button fx:id="removeTechnologyBTN" layoutX="350.0" layoutY="673.0" mnemonicParsing="false" onAction="#removeTechnologyBTN" prefHeight="27.0" prefWidth="250.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Entfernen" />
+      <Text layoutX="350.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Technik Ausgewählt" wrappingWidth="179.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <MenuButton fx:id="statusMenu" layoutX="1025.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#statusMenuBTN" prefHeight="50.0" prefWidth="150.0" text="Status">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Bezahlt" />
+          <MenuItem mnemonicParsing="false" text="Storniert" />
+            <MenuItem mnemonicParsing="false" text="Offen" />
+        </items>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </MenuButton>
+      <TextField fx:id="discountTF" layoutX="1025.0" layoutY="437.0" prefHeight="50.0" prefWidth="150.0" promptText="Rabatt in %">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

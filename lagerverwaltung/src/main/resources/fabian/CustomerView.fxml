@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fabian.CustomerController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Text layoutX="538.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kunden">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
+      <Button fx:id="homeBTN" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#homeBTN" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-style: none; -fx-background-radius: 10; -fx-cursor: hand;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/homeIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ListView fx:id="listview" layoutX="100.0" layoutY="175.0" onMouseClicked="#listviewBTB" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: black;" />
+      <MenuButton fx:id="menuBTN" layoutX="680.0" layoutY="150.0" mnemonicParsing="false" onAction="#menuBTN" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: white; -fx-border-style: solid; -fx-border-radius: 5;" text="Kunden Typ">
+        <items>
+          <MenuItem fx:id="privateCustomerBTN" mnemonicParsing="false" onAction="#privateCustomerBTN" text="Privatkunde" />
+          <MenuItem fx:id="businessCustomerBTN" mnemonicParsing="false" onAction="#businessCustomerBTN" text="Geschäftskunde" />
+        </items>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </MenuButton>
+      <TextField fx:id="firstnameTF" layoutX="680.0" layoutY="250.0" prefHeight="50.0" prefWidth="400.0" promptText="Vorname">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="lastnameTF" layoutX="680.0" layoutY="325.0" prefHeight="50.0" prefWidth="400.0" promptText="Nachname">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="phonenumberTF" layoutX="680.0" layoutY="400.0" prefHeight="50.0" prefWidth="400.0" promptText="Telefonnummer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="emailaddressTF" layoutX="680.0" layoutY="475.0" prefHeight="50.0" prefWidth="400.0" promptText="E-Mailadresse">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="companyTF" layoutX="680.0" layoutY="550.0" prefHeight="50.0" prefWidth="400.0" promptText="Firmenname">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="addressTF" layoutX="680.0" layoutY="625.0" prefHeight="50.0" prefWidth="400.0" promptText="Firmenadresse">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="doneBTN" layoutX="680.0" layoutY="700.0" mnemonicParsing="false" onAction="#doneBTN" prefHeight="50.0" prefWidth="400.0" style="-fx-cursor: hand; -fx-background-color: white; -fx-background-radius: 5;" text="Fertig">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+      </Button>
+      <Button fx:id="deleteBTN" layoutX="100.0" layoutY="725.0" mnemonicParsing="false" onAction="#deleteBTN" prefHeight="25.0" prefWidth="500.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Löschen" />
+      <Button fx:id="newCusBTN" layoutX="100.0" layoutY="150.0" mnemonicParsing="false" onAction="#newCusBTN" prefHeight="25.0" prefWidth="500.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Neuen Kunden anlegen" />
+   </children>
+</AnchorPane>

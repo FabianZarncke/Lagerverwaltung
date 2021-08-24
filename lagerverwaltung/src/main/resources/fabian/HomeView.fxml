@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="fabian.HomeController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Text layoutX="570.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
+      <Button fx:id="technologyBTN" alignment="CENTER" contentDisplay="TOP" layoutX="210.0" layoutY="300.0" mnemonicParsing="false" onAction="#technologyBTN" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-style: none; -fx-background-radius: 10; -fx-cursor: hand;" text="Technik">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/TechnikIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="customerBTN" alignment="CENTER" contentDisplay="TOP" layoutX="430.0" layoutY="300.0" mnemonicParsing="false" onAction="#customerBTN" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-style: none; -fx-background-radius: 10; -fx-cursor: hand;" text="Kunden">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/KundenIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="technicianBTN" alignment="CENTER" contentDisplay="TOP" layoutX="650.0" layoutY="300.0" mnemonicParsing="false" onAction="#technicianBTN" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-style: none; -fx-background-radius: 10; -fx-cursor: hand;" text="Techniker">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/TechnikerIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="rentalBTN" alignment="CENTER" contentDisplay="TOP" layoutX="870.0" layoutY="300.0" mnemonicParsing="false" onAction="#rentalBTN" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-style: none; -fx-background-radius: 10; -fx-cursor: hand;" text="Vermietung">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/VermietungIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
+         </effect>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
