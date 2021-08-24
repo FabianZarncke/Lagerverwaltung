@@ -37,8 +37,12 @@
       <ListView fx:id="listview" layoutX="100.0" layoutY="175.0" onMouseClicked="#listviewBTB" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: black;" />
       <MenuButton fx:id="menuBTN" layoutX="680.0" layoutY="150.0" mnemonicParsing="false" onAction="#menuBTN" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: white; -fx-border-style: solid; -fx-border-radius: 5;" text="Technik Typ">
         <items>
-          <MenuItem mnemonicParsing="false" text="Privatkunde" />
-          <MenuItem mnemonicParsing="false" text="Geschäftskunde" />
+          <MenuItem fx:id="boxBTN" mnemonicParsing="false" onAction="#boxBTN" text="Box" />
+          <MenuItem fx:id="wireBTN" mnemonicParsing="false" onAction="#wireBTN" text="Kabel" />
+            <MenuItem fx:id="stageBTN" mnemonicParsing="false" onAction="#stageBTN" text="Bühnenplatte" />
+            <MenuItem fx:id="deskBTN" mnemonicParsing="false" onAction="#deskBTN" text="Pult" />
+            <MenuItem fx:id="crossbarBTN" mnemonicParsing="false" onAction="#crossbarBTN" text="Traverse" />
+            <MenuItem fx:id="monitorBTN" mnemonicParsing="false" onAction="#monitorBTN" text="Monitor" />
         </items>
          <font>
             <Font size="20.0" />

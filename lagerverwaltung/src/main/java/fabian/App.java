@@ -34,7 +34,7 @@ public class App extends Application {
         customers.add(new PrivateCustomer("Tony", "Stark", "73289365234", "tony-stark@gmail.com"));
         customers.add(new PrivateCustomer("Jan", "Mustermann", "2635243425", "jan@gmail.com"));
         technologies.add(new Box("Dolby", "8k box", (float) 20.00, 20.00, 3, 4, App.generateId()));
-        technicians.add(new Technician("John", "Snow", (float) 10.00, "lion ist ein kek"));
+        technicians.add(new Technician("John", "Snow", (float) 10.00, "Mechaniker"));
         rentals.add(new Rental(customers.get(0), technicians, technologies, Rental.Status.open, 10, new Date()));
         
 

@@ -61,7 +61,7 @@
             <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
          </effect>
       </Button>
-      <Button fx:id="deleteBTN" layoutX="100.0" layoutY="725.0" mnemonicParsing="false" onAction="#deleteBTN" prefHeight="25.0" prefWidth="500.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Delete" />
+      <Button fx:id="deleteBTN" layoutX="100.0" layoutY="725.0" mnemonicParsing="false" onAction="#deleteBTN" prefHeight="25.0" prefWidth="500.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Löschen" />
       <Button fx:id="newTechiBTN" layoutX="100.0" layoutY="150.0" mnemonicParsing="false" onAction="#newTechiBTN" prefHeight="25.0" prefWidth="500.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Neuen Techniker anlegen" />
    </children>
 </AnchorPane>

@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -74,7 +75,7 @@ public class CustomerController implements Initializable {
             if(cus.getClass().getSimpleName().equals("PrivateCustomer")) {
                 type = "PK";
             } else {
-                type = "BK";
+                type = "GK";
             }
             listview.getItems().add(type + ": " + cus.getFirstname() + " " + cus.getLastname());
         }
@@ -91,20 +92,32 @@ public class CustomerController implements Initializable {
 
     @FXML
     private void doneBTN(ActionEvent event) {
-    }
-
-    @FXML
-    private void deleteBTN(ActionEvent event) {
-        App.getCustomers().remove(App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()));
+        Customer cus;
+        if(listview.getSelectionModel().isEmpty()) {
+            if(menuBTN.getText().equals("Privatkunde")) {
+                cus = new PrivateCustomer(firstnameTF.getText(), lastnameTF.getText(), phonenumberTF.getText(), emailaddressTF.getText());
+                App.getCustomers().add(cus);
+            } else {
+                cus = new BusinessCustomer(firstnameTF.getText(), lastnameTF.getText(), phonenumberTF.getText(), emailaddressTF.getText(), addressTF.getText(), companyTF.getText());
+                App.getCustomers().add(cus);
+            }
+        } else {
+            if(menuBTN.getText().equals("Privatkunde")) {
+                cus = new PrivateCustomer(firstnameTF.getText(), lastnameTF.getText(), phonenumberTF.getText(), emailaddressTF.getText());
+                App.getCustomers().set(listview.getSelectionModel().getSelectedIndex(), cus);
+            } else {
+                //cus = new BusinessCustomer(firstnameTF.getText(), lastnameTF.getText(), phonenumberTF.getText(), emailaddressTF.getText(), addressTF.getText(), companyTF.getText());
+                App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).setFirstname(firstnameTF.getText());
+                App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).setLastname(lastnameTF.getText());
+                App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).setPhonenumber(phonenumberTF.getText());
+                App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).setEmailaddress(emailaddressTF.getText());
+            }
+        }
+        clearFields();
         refreshListview();
     }
-
-    @FXML
-    private void listviewBTB(MouseEvent event) {
-    }
-
-    @FXML
-    private void newCusBTN(ActionEvent event) {
+    
+    public void clearFields() {
         firstnameTF.setText("");
         lastnameTF.setText("");
         phonenumberTF.setText("");
@@ -115,10 +128,32 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
+    private void deleteBTN(ActionEvent event) {
+        App.getCustomers().remove(App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()));
+        refreshListview();
+    }
+
+    @FXML
+    private void listviewBTB(MouseEvent event) {
+        firstnameTF.setText(App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).getFirstname());
+        lastnameTF.setText(App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).getLastname());
+        phonenumberTF.setText(App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).getPhonenumber());
+        emailaddressTF.setText(App.getCustomers().get(listview.getSelectionModel().getSelectedIndex()).getEmailaddress());
+        companyTF.setVisible(false);
+        addressTF.setVisible(false);
+    }
+
+    @FXML
+    private void newCusBTN(ActionEvent event) {
+        clearFields();
+    }
+
+    @FXML
     private void privateCustomerBTN(ActionEvent event) {
         menuBTN.setText("Privatkunde");
         companyTF.setVisible(false);
         addressTF.setVisible(false);
+        clearFields();
     }
 
     @FXML
@@ -126,6 +161,7 @@ public class CustomerController implements Initializable {
         menuBTN.setText("Geschäftskunde");
         companyTF.setVisible(true);
         addressTF.setVisible(true);
+        clearFields();
     }
     
 }

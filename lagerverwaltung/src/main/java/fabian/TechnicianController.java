@@ -47,8 +47,24 @@ public class TechnicianController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        refreshListview();
+    }
+    
+    public void refreshListview() {
+        listview.getItems().removeAll();
+        listview.getItems().clear();
+        for(Technician techi : App.getTechnicians()) {
+            listview.getItems().add(techi.getFirstname() + " " + techi.getLastname() + " " + techi.getDescription());
+        }
+    }
+    
+    public void clearFields() {
+        firstnameTF.setText("");
+        lastnameTF.setText("");
+        descriptionTF.setText("");
+        wageTF.setText("");
+        listview.getSelectionModel().clearSelection();
+    }
 
     @FXML
     private void homeBTN(ActionEvent event) throws IOException {
@@ -57,18 +73,33 @@ public class TechnicianController implements Initializable {
 
     @FXML
     private void listviewBTB(MouseEvent event) {
+        firstnameTF.setText(App.getTechnicians().get(listview.getSelectionModel().getSelectedIndex()).getFirstname());
+        lastnameTF.setText(App.getTechnicians().get(listview.getSelectionModel().getSelectedIndex()).getLastname());
+        descriptionTF.setText(App.getTechnicians().get(listview.getSelectionModel().getSelectedIndex()).getDescription());
+        wageTF.setText(String.valueOf(App.getTechnicians().get(listview.getSelectionModel().getSelectedIndex()).getWage()));
     }
 
     @FXML
     private void doneBTN(ActionEvent event) {
+        Technician techi = new Technician(firstnameTF.getText(), lastnameTF.getText(), Float.parseFloat(wageTF.getText()), descriptionTF.getText());
+        if(listview.getSelectionModel().isEmpty()) {
+            App.getTechnicians().add(techi);
+        } else {
+            App.getTechnicians().set(listview.getSelectionModel().getSelectedIndex(), techi);
+        }
+        clearFields();
+        refreshListview();
     }
 
     @FXML
     private void deleteBTN(ActionEvent event) {
+        App.getTechnicians().remove(App.getTechnicians().get(listview.getSelectionModel().getSelectedIndex()));
+        refreshListview();
     }
 
     @FXML
     private void newTechiBTN(ActionEvent event) {
+        clearFields();
     }
     
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -44,10 +45,10 @@
          </effect>
       </Button>
       <Button fx:id="addTechnicianBTN" layoutX="50.0" layoutY="349.0" mnemonicParsing="false" onAction="#addTechnicianBTN" prefHeight="27.0" prefWidth="250.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Hinzufügen" />
-      <ListView fx:id="customerListview" layoutX="740.0" layoutY="324.0" onMouseClicked="#customerListview" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
+      <ListView fx:id="customerListview" layoutX="740.0" layoutY="150.0" onMouseClicked="#customerListview" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
       <ListView fx:id="technologyListview" layoutX="350.0" layoutY="150.0" onMouseClicked="#technologyListviewBTN" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: black;" />
       <Button fx:id="addTechnologyBTN" layoutX="350.0" layoutY="349.0" mnemonicParsing="false" onAction="#addTechnologyBTN" prefHeight="27.0" prefWidth="250.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-style: solid; -fx-cursor: hand;" text="Hinzufügen" />
-      <Text layoutX="740.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wähle einen Kunden" wrappingWidth="179.0">
+      <Text layoutX="740.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wähle einen Kunden" wrappingWidth="179.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -76,7 +77,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <MenuButton fx:id="statusMenu" layoutX="1025.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#statusMenuBTN" prefHeight="50.0" prefWidth="150.0" text="Status">
+      <MenuButton fx:id="statusMenu" layoutX="1040.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#statusMenuBTN" prefHeight="50.0" prefWidth="150.0" text="Status">
         <items>
           <MenuItem mnemonicParsing="false" text="Bezahlt" />
           <MenuItem mnemonicParsing="false" text="Storniert" />
@@ -86,10 +87,15 @@
             <Font size="14.0" />
          </font>
       </MenuButton>
-      <TextField fx:id="discountTF" layoutX="1025.0" layoutY="437.0" prefHeight="50.0" prefWidth="150.0" promptText="Rabatt in %">
+      <TextField fx:id="discountTF" layoutX="1040.0" layoutY="263.0" prefHeight="50.0" prefWidth="150.0" promptText="Rabatt in %">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
+      <Label fx:id="priceLB" alignment="CENTER" layoutX="824.0" layoutY="515.0" text="20.50€" textAlignment="CENTER">
+         <font>
+            <Font size="80.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

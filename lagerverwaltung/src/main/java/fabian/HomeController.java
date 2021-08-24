@@ -39,7 +39,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void technologyBTN(ActionEvent event) throws IOException {
-        App.setRoot("TechnicianView");
+        App.setRoot("TechnologyView");
     }
 
     @FXML

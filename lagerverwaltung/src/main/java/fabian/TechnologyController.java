@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -50,14 +51,44 @@ public class TechnologyController implements Initializable {
     private TextField slotTF;
     @FXML
     private Button defectBTN;
+    @FXML
+    private MenuItem boxBTN;
+    @FXML
+    private MenuItem wireBTN;
+    @FXML
+    private MenuItem stageBTN;
+    @FXML
+    private MenuItem deskBTN;
+    @FXML
+    private MenuItem crossbarBTN;
+    @FXML
+    private MenuItem monitorBTN;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        refreshListview();
+    }
+    
+    public void refreshListview() {
+        listview.getItems().removeAll();
+        listview.getItems().clear();
+        for(Technology tech : App.getTechnologies()) {
+            listview.getItems().add(tech.getClass().getSimpleName() + ": " + tech.getName() + " " + tech.getDescription());
+        }
+    }
+    
+    public void clearFields() {
+        nameTF.setText("");
+        descriptionTF.setText("");
+        priceTF.setText("");
+        shelfTF.setText("");
+        slotTF.setText("");
+        customFieldTF.setText("");
+        listview.getSelectionModel().clearSelection();
+    }
 
     @FXML
     private void homeBTN(ActionEvent event) throws IOException {
@@ -82,10 +113,35 @@ public class TechnologyController implements Initializable {
 
     @FXML
     private void newTechBTN(ActionEvent event) {
+        clearFields();
     }
 
     @FXML
     private void defectBTN(ActionEvent event) {
+    }
+
+    @FXML
+    private void boxBTN(ActionEvent event) {
+    }
+
+    @FXML
+    private void wireBTN(ActionEvent event) {
+    }
+
+    @FXML
+    private void stageBTN(ActionEvent event) {
+    }
+
+    @FXML
+    private void deskBTN(ActionEvent event) {
+    }
+
+    @FXML
+    private void crossbarBTN(ActionEvent event) {
+    }
+
+    @FXML
+    private void monitorBTN(ActionEvent event) {
     }
     
 }
