@@ -43,6 +43,7 @@ public class RentalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         refreshListview();
+        App.setRent(null);
     }
     
     public void refreshListview() {

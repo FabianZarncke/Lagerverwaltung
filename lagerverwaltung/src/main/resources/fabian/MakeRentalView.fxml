@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -79,9 +78,9 @@
       </Text>
       <MenuButton fx:id="statusMenu" layoutX="1040.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#statusMenuBTN" prefHeight="50.0" prefWidth="150.0" text="Status">
         <items>
-          <MenuItem mnemonicParsing="false" text="Bezahlt" />
-          <MenuItem mnemonicParsing="false" text="Storniert" />
-            <MenuItem mnemonicParsing="false" text="Offen" />
+          <MenuItem mnemonicParsing="false" onAction="#statusPayedBTN" text="Bezahlt" />
+          <MenuItem mnemonicParsing="false" onAction="#statusCancelledBTN" text="Storniert" />
+            <MenuItem mnemonicParsing="false" onAction="#statusOpenBTN" text="Offen" />
         </items>
          <font>
             <Font size="14.0" />
@@ -92,10 +91,5 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label fx:id="priceLB" alignment="CENTER" layoutX="824.0" layoutY="515.0" text="20.50€" textAlignment="CENTER">
-         <font>
-            <Font size="80.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
