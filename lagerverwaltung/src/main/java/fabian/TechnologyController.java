@@ -76,7 +76,7 @@ public class TechnologyController implements Initializable {
         listview.getItems().removeAll();
         listview.getItems().clear();
         for(Technology tech : App.getTechnologies()) {
-            listview.getItems().add(tech.getClass().getSimpleName() + ": " + tech.getName() + " " + tech.getDescription());
+            listview.getItems().add(tech.getClass().getSimpleName() + ": " + tech.getName() + " " + tech.getDescription() + " |is available: " + tech.getAvailable());
         }
     }
     
@@ -97,6 +97,12 @@ public class TechnologyController implements Initializable {
 
     @FXML
     private void listviewBTB(MouseEvent event) {
+        nameTF.setText(App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).getName());
+        descriptionTF.setText(App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).getDescription());
+        priceTF.setText(String.valueOf(App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).getPrice()));
+        shelfTF.setText(String.valueOf(App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).getShelf()));
+        slotTF.setText(String.valueOf(App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).getSlot()));
+        customFieldTF.setVisible(false);
     }
 
     @FXML
@@ -105,10 +111,43 @@ public class TechnologyController implements Initializable {
 
     @FXML
     private void doneBTN(ActionEvent event) {
+        Technology tech;
+        if(listview.getSelectionModel().isEmpty()) {
+            if(menuBTN.getText().equals("Box")) {
+                tech = new Box(nameTF.getText(), descriptionTF.getText(), Float.parseFloat(priceTF.getText()), Double.parseDouble(customFieldTF.getText()), Integer.parseInt(shelfTF.getText()), Integer.parseInt(slotTF.getText()));
+                App.getTechnologies().add(tech);
+            } else if(menuBTN.getText().equals("Crossbar")){
+                tech = new Crossbar(nameTF.getText(), descriptionTF.getText(), Float.parseFloat(priceTF.getText()), Double.parseDouble(customFieldTF.getText()), Integer.parseInt(shelfTF.getText()), Integer.parseInt(slotTF.getText()));
+                App.getTechnologies().add(tech);
+            } else if(menuBTN.getText().equals("Desk")){
+                tech = new Desk(nameTF.getText(), descriptionTF.getText(), Float.parseFloat(priceTF.getText()), Integer.parseInt(customFieldTF.getText()), Integer.parseInt(shelfTF.getText()), Integer.parseInt(slotTF.getText()));
+                App.getTechnologies().add(tech);
+            } else if(menuBTN.getText().equals("Monitor")){
+                tech = new Monitor(nameTF.getText(), descriptionTF.getText(), Float.parseFloat(priceTF.getText()), Integer.parseInt(customFieldTF.getText()), Integer.parseInt(shelfTF.getText()), Integer.parseInt(slotTF.getText()));
+                App.getTechnologies().add(tech);
+            } else if(menuBTN.getText().equals("Stage")){
+                tech = new Stage(nameTF.getText(), descriptionTF.getText(), Float.parseFloat(priceTF.getText()), customFieldTF.getText(), Integer.parseInt(shelfTF.getText()), Integer.parseInt(slotTF.getText()));
+                App.getTechnologies().add(tech);
+            } else if(menuBTN.getText().equals("Wire")){
+                tech = new Wire(nameTF.getText(), descriptionTF.getText(), Float.parseFloat(priceTF.getText()), Double.parseDouble(customFieldTF.getText()), Integer.parseInt(shelfTF.getText()), Integer.parseInt(slotTF.getText()));
+                App.getTechnologies().add(tech);
+            }
+            
+        } else {
+            App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).setName(nameTF.getText());
+            App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).setDescription(descriptionTF.getText());
+            App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).setPrice(Float.parseFloat(priceTF.getText()));
+            App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).setShelf(Integer.parseInt(shelfTF.getText()));
+            App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).setSlot(Integer.parseInt(slotTF.getText()));
+        }
+        clearFields();
+        refreshListview();
     }
 
     @FXML
     private void deleteBTN(ActionEvent event) {
+        App.getTechnologies().remove(App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()));
+        refreshListview();
     }
 
     @FXML
@@ -118,30 +157,60 @@ public class TechnologyController implements Initializable {
 
     @FXML
     private void defectBTN(ActionEvent event) {
+        if(App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).getAvailable()) {
+            App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).setAvailable(false);
+        } else {
+            App.getTechnologies().get(listview.getSelectionModel().getSelectedIndex()).setAvailable(true);
+        }
+        refreshListview();
     }
 
     @FXML
     private void boxBTN(ActionEvent event) {
+        menuBTN.setText("Box");
+        customFieldTF.setPromptText("gewicht");
+        clearFields();
+        customFieldTF.setVisible(true);
     }
 
     @FXML
     private void wireBTN(ActionEvent event) {
+        menuBTN.setText("Wire");
+        customFieldTF.setPromptText("länge");
+        clearFields();
+        customFieldTF.setVisible(true);
     }
 
     @FXML
     private void stageBTN(ActionEvent event) {
+        menuBTN.setText("Stage");
+        customFieldTF.setPromptText("maße");
+        clearFields();
+        customFieldTF.setVisible(true);
     }
 
     @FXML
     private void deskBTN(ActionEvent event) {
+        menuBTN.setText("Desk");
+        customFieldTF.setPromptText("kanäle");
+        clearFields();
+        customFieldTF.setVisible(true);
     }
 
     @FXML
     private void crossbarBTN(ActionEvent event) {
+        menuBTN.setText("Crossbar");
+        customFieldTF.setPromptText("länge");
+        clearFields();
+        customFieldTF.setVisible(true);
     }
 
     @FXML
     private void monitorBTN(ActionEvent event) {
+        menuBTN.setText("Monitor");
+        customFieldTF.setPromptText("zoll");
+        clearFields();
+        customFieldTF.setVisible(true);
     }
     
 }

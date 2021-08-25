@@ -22,11 +22,13 @@ public class App extends Application {
     static ArrayList<Technician> technicians = new ArrayList<Technician>();
     static ArrayList<Technology> technologies = new ArrayList<Technology>();
     static ArrayList<Rental> rentals = new ArrayList<Rental>(); 
+    
+    static Rental rent;
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("HomeView"), 1280, 800);
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
         
@@ -140,5 +142,12 @@ public class App extends Application {
     public static void setTechnicians(ArrayList<Technician> technicians) {
         App.technicians = technicians;
     }
-    
+
+    public static Rental getRent() {
+        return rent;
+    }
+
+    public static void setRent(Rental rent) {
+        App.rent = rent;
+    }
 }

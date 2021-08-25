@@ -42,8 +42,16 @@ public class RentalController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        refreshListview();
+    }
+    
+    public void refreshListview() {
+        listview.getItems().removeAll();
+        listview.getItems().clear();
+        for(Rental rent : App.getRentals()) {
+            listview.getItems().add(rent.getId() + " " + rent.getCustomer() + " " + rent.getTechnologies());
+        }
+    }
 
     @FXML
     private void homeBTN(ActionEvent event) throws IOException {
@@ -55,24 +63,31 @@ public class RentalController implements Initializable {
     }
 
     @FXML
-    private void newRentalBTN(ActionEvent event) {
+    private void newRentalBTN(ActionEvent event) throws IOException {
+        App.setRoot("MakeRentalView");
     }
 
     @FXML
     private void deleteBTN(ActionEvent event) {
+        App.getRentals().remove(App.getRentals().get(listview.getSelectionModel().getSelectedIndex()));
+        refreshListview();
     }
 
     @FXML
     private void payedBTN(ActionEvent event) {
+        App.getRentals().get(listview.getSelectionModel().getSelectedIndex()).setStatus(Rental.Status.payed);
     }
 
 
     @FXML
-    private void editBTN(ActionEvent event) {
+    private void editBTN(ActionEvent event) throws IOException {
+        App.setRent(App.getRentals().get(listview.getSelectionModel().getSelectedIndex()));
+        App.setRoot("MakeRentalView");
     }
 
     @FXML
-    private void printBTN(ActionEvent event) {
+    private void printBTN(ActionEvent event) throws IOException {
+        PrintService.createPDF(App.getRentals().get(listview.getSelectionModel().getSelectedIndex()));
     }
     
 }
