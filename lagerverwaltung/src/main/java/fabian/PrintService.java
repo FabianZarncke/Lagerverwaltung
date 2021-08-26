@@ -21,7 +21,7 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 public class PrintService {
     
-    static String PathPDF ="./pdf/";
+    static String PathPDF ="C:\\Users\\Fabian\\Desktop\\";
     public static void createPDF(Rental rental) throws IOException{
         PDDocument document = new PDDocument();
         
